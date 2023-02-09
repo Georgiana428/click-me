@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="buttonsContainer"></div>
+  
+  <script>
+    const buttonsContainer = document.getElementById("buttonsContainer");
+    const numButtons = Math.floor(Math.random() * 10) + 1;
+    
+    for (let i = 0; i < numButtons; i++) {
+      let button = document.createElement("button");
+      button.innerHTML = "Click Me";
+      button.addEventListener("click", function() {
+        this.style.display = "none";
+      });
+      buttonsContainer.appendChild(button);
+    }
+  </script>
+</body>
+</html>
