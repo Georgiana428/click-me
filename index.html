@@ -7,7 +7,9 @@
       font-size: 16px;
       border-radius: 5px;
       margin: 10px;
+	  	cursor: url(https://cdn-icons-png.flaticon.com/512/18/18554.png), auto;
     }
+	    
   </style>
 </head>
 <body>
@@ -16,10 +18,20 @@
   <script>
     const buttonsContainer = document.getElementById("buttonsContainer");
     const numButtons = Math.floor(Math.random() * 10) + 1;
+    const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+    let usedColors = [];
     
     for (let i = 0; i < numButtons; i++) {
       let button = document.createElement("button");
       button.innerHTML = "Click Me";
+      
+      let color = colors[Math.floor(Math.random() * colors.length)];
+      while (usedColors.includes(color)) {
+        color = colors[Math.floor(Math.random() * colors.length)];
+      }
+      usedColors.push(color);
+      
+      button.style.backgroundColor = color;
       button.addEventListener("click", function() {
         this.style.display = "none";
       });
